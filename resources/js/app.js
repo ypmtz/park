@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import store from './store/index'
 
 /**
  * The following block of code may be used to automatically register your
@@ -18,7 +19,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
+Vue.component('user-delete-modal', require('./components/users/UserDeleteModal.vue'));
+Vue.component('user-delete-button', require('./components/users/UserDeleteButton.vue'));
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
@@ -29,5 +31,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });
